@@ -13,6 +13,8 @@
     </head>
     <body class="container-fluid">
 
+      <p id="message"></p>
+
 
       <form id="sign-up" class="border">
               <fieldset>
@@ -20,7 +22,7 @@
                 <input type="submit" value="Sign up!" id="signUpButton">
                 <input  type="text" name="credentials[email]" required id="email-field" placeholder="Email">
                 <input  type="password" name="credentials[password]" required id="password-field"  placeholder="Password">
-                <input  type="password" name="credentials[password_conformation]" required id="password-conformation-field"  placeholder="Confirm Password">
+                <input  type="password" name="credentials[password_confirmation]" required id="password-conformation-field"  placeholder="Confirm Password">
               </fieldset>
             </form>
 
@@ -49,14 +51,21 @@
               </fieldset>
             </form>
 
-      <h1>Example</h1>
+            <form id="create" class="border">
+              <fieldset>
+                <legend>Add a Movie</legend>
+                <input id="createField" type="submit" value="Add Movie"><br>
+                <input type="text" name="movie[title]" placeholder="Movie Title"><br>
+                <input type="text" name="movie[director]" placeholder="Director"><br>
+                <input type="text" name="movie[actor]" placeholder="Actor"><br>
+              </fieldset>
+            </form>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+            <form id="showAll" class="border">
+              <fieldset>
+                <legend>My Movies</legend>
+                <input type="submit" value="Show My Movies">
+              </fieldset>
+            </form>
     </body>
 </html>

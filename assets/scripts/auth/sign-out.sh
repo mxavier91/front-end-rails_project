@@ -1,0 +1,4 @@
+curl "https://railsmovieapp.herokuapp.com/sign-out/" \
+  --include \
+  --request DELETE \
+  --header "Authorization: Token token=${TOKEN}" \
