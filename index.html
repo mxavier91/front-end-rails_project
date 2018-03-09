@@ -12,6 +12,43 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+
+
+      <form id="sign-up" class="border">
+              <fieldset>
+                <legend>Sign up!</legend>
+                <input type="submit" value="Sign up!" id="signUpButton">
+                <input  type="text" name="credentials[email]" required id="email-field" placeholder="Email">
+                <input  type="password" name="credentials[password]" required id="password-field"  placeholder="Password">
+                <input  type="password" name="credentials[password_conformation]" required id="password-conformation-field"  placeholder="Confirm Password">
+              </fieldset>
+            </form>
+
+            <form id="sign-in" class="border">
+              <fieldset>
+                <legend>Sign In Here!</legend>
+                <input id="signInField" type="submit" value="Sign in!">
+                <input type="text" name="credentials[email]" required id="signInEmail" placeholder="Email">
+                <input type="password" name="credentials[password]" required id="signInPassword" placeholder="Password">
+              </fieldset>
+            </form>
+
+            <form id="delete" class="border">
+              <fieldset>
+                <legend>Sign Out</legend>
+                <input type="submit" value="Sign Out">
+              </fieldset>
+            </form>
+
+            <form id="change-password" class="border">
+              <fieldset>
+                <legend>Change Password</legend>
+                <input id="passwordField" type="submit" value="Change Password">
+                <input type="password" name="passwords[old]" id="oldPasswordField" placeholder="Old Password">
+                <input type="password" name="passwords[new]" id="newPasswordField" placeholder="New Password">
+              </fieldset>
+            </form>
+
       <h1>Example</h1>
 
       <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
