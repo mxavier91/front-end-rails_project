@@ -58,10 +58,25 @@ const createMovie = function (data) {
   })
 }
 
-const onShowAllMovies = function () {
+const showAllMovies = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/movies',
-    method: 'GET'
+    method: 'GET',
+    headers: {
+      // contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const showMovieById = function (data) {
+  console.log(id)
+  return $.ajax({
+    url: config.apiOrigin + '/movies' + store.movie.id,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
   })
 }
 
@@ -71,5 +86,6 @@ module.exports = {
   changePassword,
   signOut,
   createMovie,
-  onShowAllMovies
+  showAllMovies,
+  showMovieById
 }

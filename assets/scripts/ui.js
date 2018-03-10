@@ -54,13 +54,24 @@ const CreateFailed = function (data) {
   $('#message').css('background-color', 'red')
 }
 
-const showAllSuccess = function (data) {
+const showAllMoviesSuccess = function (data) {
+  console.log(data)
   $('#message').text('Here ya Go!!!')
   $('#message').css('background-color', 'blue')
-  store.game = data.game
 }
 
-const showAllFailed = function (data) {
+const showAllMoviesFailed = function (data) {
+  $('#message').text('Hold up one sec')
+  $('#message').css('background-color', 'red')
+}
+
+const showMovieByIdSuccess = function (data) {
+  console.log(data.movie)
+  $('#message').text('Here ya Go!!!')
+  $('#message').css('background-color', 'blue')
+}
+
+const showMovieByIdFailed = function (data) {
   $('#message').text('Hold up one sec')
   $('#message').css('background-color', 'red')
 }
@@ -76,6 +87,8 @@ module.exports = {
   deleteFailure,
   CreateSuccessful,
   CreateFailed,
-  showAllSuccess,
-  showAllFailed
+  showAllMoviesSuccess,
+  showAllMoviesFailed,
+  showMovieByIdSuccess,
+  showMovieByIdFailed
 }
