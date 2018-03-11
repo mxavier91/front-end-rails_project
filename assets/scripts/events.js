@@ -49,21 +49,6 @@ const onShowAll = function (event) {
     .catch(ui.showAllMoviesFailed)
 }
 
-const onShowById = function (event) {
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  const movie = data.movie
-  if (movie.id.length !== 0) {
-    api.showMovieById(movie.id)
-      .then(ui.showMovieByIdSuccess)
-      .catch(ui.showMovieByIdFailed)
-  } else {
-    console.log('Please provide a book id!')
-  }
-  console.log(data)
-  console.log(movie)
-}
-
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -71,7 +56,6 @@ const addHandlers = () => {
   $('#delete').on('submit', onSignOut)
   $('#create').on('submit', onCreate)
   $('#showAll').on('submit', onShowAll)
-  $('#show-by-id').on('submit', onShowById)
 }
 
 module.exports = {
