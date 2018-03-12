@@ -30,8 +30,8 @@ const onSignOut = function () {
   event.preventDefault()
   const data = getFormFields(this)
   api.signOut(data)
-    .then(ui.deleteSuccess)
-    .catch(ui.deleteFailure)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const onCreate = function (event) {
@@ -67,7 +67,7 @@ const onUpdateMovie = function (event) {
     console.log('Please provide a movie id!')
   }
 }
-
+/*
 const onDeleteMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -80,6 +80,15 @@ const onDeleteMovie = function (event) {
     console.log('Please provide a movie id!')
   }
 }
+*/
+
+const onDeleteMovie = (event) => {
+  event.preventDefault()
+  const id = event.target.dataset.id
+  api.deleteMovie(id)
+    .then(() => onShowAll(event))
+    .catch(ui.failure)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -89,7 +98,8 @@ const addHandlers = () => {
   $('#create').on('submit', onCreate)
   $('#showAll').on('submit', onShowAll)
   $('#update').on('submit', onUpdateMovie)
-  $('#delete').on('submit', onDeleteMovie)
+  // $('#delete').on('submit', onDeleteMovie)
+  $('#content').on('click', '.movie-delete', onDeleteMovie)
 }
 
 module.exports = {

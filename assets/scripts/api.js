@@ -81,6 +81,7 @@ const updateMovie = function (data) {
   })
 }
 
+/*
 const deleteMovie = function (id) {
   console.log(id)
   return $.ajax({
@@ -92,7 +93,18 @@ const deleteMovie = function (id) {
     }
   })
 }
+*/
 
+const deleteMovie = function (id) {
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + id,
+    method: 'DELETE',
+    headers: {
+      ContentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 module.exports = {
   signUp,
   signIn,

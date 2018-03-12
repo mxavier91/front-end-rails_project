@@ -58,6 +58,14 @@ const changeFailure = function () {
 const signOutSuccess = function () {
   $('#message').text('Signed out Successfully')
   $('#message').css('background-color', 'green')
+  $('#change-password').hide()
+  $('#sign-out').hide()
+  $('#create').hide()
+  $('#showAll').hide()
+  $('#update').hide()
+  $('#delete').hide()
+  $('#sign-up').show()
+  $('#sign-in').show()
 }
 
 const signOutFailure = function () {
