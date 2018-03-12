@@ -38,8 +38,8 @@ const onCreate = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.createMovie(data)
-    .then(ui.newGameCreated)
-    .catch(ui.newGameFailed)
+    .then(ui.createSuccessful)
+    .catch(ui.createFailed)
 }
 
 const onShowAll = function (event) {
@@ -49,13 +49,47 @@ const onShowAll = function (event) {
     .catch(ui.showAllMoviesFailed)
 }
 
+const onUpdateMovie = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const movie = data.movie
+  if (movie.title === '') {
+    // alert('title required')
+    $('#content').html('<p>Title is required</p>')
+    $('#content').css('background-color', 'red')
+    return false
+  }
+  if (movie.id.length !== 0) {
+    api.updateMovie(data)
+      .then(ui.onUpdateSuccess)
+      .catch(ui.onError)
+  } else {
+    console.log('Please provide a movie id!')
+  }
+}
+
+const onDeleteMovie = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const movie = data.movie
+  if (movie.id.length !== 0) {
+    api.deleteMovie(movie.id)
+      .then(ui.onDeleteSuccess)
+      .catch(ui.onError)
+  } else {
+    console.log('Please provide a movie id!')
+  }
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
-  $('#delete').on('submit', onSignOut)
+  $('#sign-out').on('submit', onSignOut)
   $('#create').on('submit', onCreate)
   $('#showAll').on('submit', onShowAll)
+  $('#update').on('submit', onUpdateMovie)
+  $('#delete').on('submit', onDeleteMovie)
 }
 
 module.exports = {

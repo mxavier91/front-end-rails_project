@@ -69,11 +69,37 @@ const showAllMovies = function () {
   })
 }
 
+const updateMovie = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + data.movie.id,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const deleteMovie = function (id) {
+  console.log(id)
+  return $.ajax({
+    url: config.apiOrigin + '/movies/' + id,
+    method: 'DELETE',
+    headers: {
+      ContentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
   signOut,
   createMovie,
-  showAllMovies
+  showAllMovies,
+  updateMovie,
+  deleteMovie
 }

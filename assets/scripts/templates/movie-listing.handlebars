@@ -4,15 +4,26 @@
   Don't uncomment yet -->
 
  <!-- Developers, why are we using data-id and not just id? -->
-  <h1 data-id="{{movie.id}}"> <small>Title:{{movie.title}}</small></h1>
-  <div>
-    {{#if movie.director}}
-      {{movie.title}}
-      {{movie.director}}
-      {{movie.actor}}
+<ul>
+  <li>
+  <h1 data-id="{{movie.id}}">
+     <small>
+       Title:{{movie.title}}
+     </small>
+   </h1>
+ </li>
+    {{#if movie.title}}
+      <li>Moive ID:{{movie.id}}</li>
+      <li>Director:{{movie.director}}</li>
+      <li>Actor:{{movie.actor}}</li>
     {{else}}
       No author provided.
     {{/if}}
-  </div>
+    <button class="movie-delete" data-id={{movie.id}}>
+      Remove
+    </button>
+</ul>
 
-{{/each}}
+  {{/each}}
+
+</ul>

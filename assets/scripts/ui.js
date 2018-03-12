@@ -4,55 +4,82 @@ const showMovies = require('./templates/movie-listing.handlebars')
 const signUpSuccess = function (data) {
   $('#message').text('Signed up Successfully')
   $('#message').css('background-color', 'green')
-  $('#sign-up').val('')
+  $('#email-field').val('')
+  $('#password-field').val('')
+  $('#password-conformation-field').val('')
+  $('#sign-up').hide()
 }
 
 const signUpFailure = function () {
   $('#message').text('Signed up Failure')
   $('#message').css('background-color', 'red')
-  $('#sign-up').val('')
+  $('#email-field').val('')
+  $('#password-field').val('')
+  $('#password-conformation-field').val('')
 }
 
 const signInSuccess = function (data) {
   $('#message').text('Signed in Successfully')
   $('#message').css('background-color', 'blue')
+  $('#signInEmail').val('')
+  $('#signInPassword').val('')
+  $('#change-password').show()
+  $('#sign-out').show()
+  $('#create').show()
+  $('#showAll').show()
+  $('#update').show()
+  $('#delete').show()
+  $('#sign-up').hide()
+  $('#sign-in').hide()
   store.user = data.user
 }
 
 const signInFailure = function (data) {
   $('#message').text('Signed in Error')
   $('#message').css('background-color', 'yellow')
+  $('#signInEmail').val('')
+  $('#signInPassword').val('')
 }
 
 const changeSuccess = function () {
   $('#message').text('Changed Password Successfully')
   $('#message').css('background-color', 'green')
+  $('#oldPasswordField').val('')
+  $('#newPasswordField').val('')
 }
 
 const changeFailure = function () {
   $('#message').text('Error changing password')
   $('#message').css('background-color', 'red')
+  $('#oldPasswordField').val('')
+  $('#newPasswordField').val('')
 }
 
-const deleteSuccess = function () {
+const signOutSuccess = function () {
   $('#message').text('Signed out Successfully')
   $('#message').css('background-color', 'green')
 }
 
-const deleteFailure = function () {
+const signOutFailure = function () {
   $('#message').text('Error Signing Out')
   $('#message').css('background-color', 'red')
 }
 
-const CreateSuccessful = function (data) {
+const createSuccessful = function (data) {
   $('#message').text('Let\'s do this!!!!!')
   $('#message').css('background-color', 'blue')
-  store.game = data.game
+  $('#newMovieField').val('')
+  $('#newDirectorField').val('')
+  $('#newActorField').val('')
+  store.movie = data.movie
 }
 
-const CreateFailed = function (data) {
+const createFailed = function (data) {
   $('#message').text('Hold up one sec')
   $('#message').css('background-color', 'red')
+  $('#newMovieField').val('')
+  $('#newDirectorField').val('')
+  $('#newActorField').val('')
 }
 
 const showAllMoviesSuccess = function (data) {
@@ -68,6 +95,22 @@ const showAllMoviesFailed = function (data) {
   $('#message').css('background-color', 'red')
 }
 
+const updateSuccess = function (data) {
+  $('#message').text('Hold up one sec')
+  $('#message').css('background-color', 'red')
+  $('#updateMovie').val('')
+  $('#updateDirector').val('')
+  $('#updateActor').val('')
+}
+
+const updateFailed = function (data) {
+  $('#message').text('Hold up one sec')
+  $('#message').css('background-color', 'red')
+  $('#updateMovie').val('')
+  $('#updateDirector').val('')
+  $('#updateActor').val('')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -75,10 +118,12 @@ module.exports = {
   signInFailure,
   changeSuccess,
   changeFailure,
-  deleteSuccess,
-  deleteFailure,
-  CreateSuccessful,
-  CreateFailed,
+  signOutSuccess,
+  signOutFailure,
+  createSuccessful,
+  createFailed,
   showAllMoviesSuccess,
-  showAllMoviesFailed
+  showAllMoviesFailed,
+  updateSuccess,
+  updateFailed
 }

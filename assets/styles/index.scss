@@ -1,2 +1,48 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+
+body {
+  background-image: url('../../movies.jpg');
+  background-size: cover;
+}
+
+.title {
+  text-align: center;
+  text-decoration: underline;
+  color: white;
+  font-size: 50px;
+}
+
+.sign-up {
+  text-align: center;
+  margin-top: 100px;
+}
+
+
+.sign-in {
+  text-align: center;
+}
+
+.sign-out {
+  display: none;
+}
+
+.change-pw {
+  display: none;
+}
+
+.new-item {
+  display: none;
+}
+
+.all-movies {
+  display: none;
+}
+
+.update-movies {
+  display: none;
+}
+
+.delete-movie {
+  display: none;
+}
