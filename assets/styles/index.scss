@@ -2,7 +2,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background-image: url('../../movies.jpg');
+  background-image: url('../public/movies.jpg');
   background-size: cover;
 }
 
@@ -45,4 +45,8 @@ body {
 
 .delete-movie {
   display: none;
+}
+
+.listings {
+  color: white;
 }
