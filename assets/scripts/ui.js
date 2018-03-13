@@ -101,8 +101,11 @@ const showAllMoviesSuccess = function (data) {
 }
 
 const showAllMoviesFailed = function (data) {
-  $('#message').text('Hold up one sec')
-  $('#message').css('background-color', 'red')
+  console.log(data)
+  if (data.length === 0) {
+    $('#message').text('Hold up one sec')
+    $('#message').css('background-color', 'red')
+  }
 }
 
 const updateSuccess = function (data) {
