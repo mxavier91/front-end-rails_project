@@ -47,6 +47,7 @@ const onShowAll = function (event) {
   api.showAllMovies()
     .then(ui.showAllMoviesSuccess)
     .catch(ui.showAllMoviesFailed)
+  $('#content').toggle()
 }
 
 const onUpdateMovie = function (event) {
@@ -61,7 +62,7 @@ const onUpdateMovie = function (event) {
   }
   if (movie.id.length !== 0) {
     api.updateMovie(data)
-      .then(ui.onUpdateSuccess)
+      .then(ui.updateSuccess)
       .catch(ui.onError)
   } else {
     console.log('Please provide a movie id!')
@@ -87,7 +88,8 @@ const onDeleteMovie = (event) => {
   const id = event.target.dataset.id
   api.deleteMovie(id)
     .then(() => onShowAll(event))
-    .catch(ui.failure)
+    .then(ui.deleteSuccessful)
+    .catch(ui.deleteFailed)
 }
 
 const addHandlers = () => {

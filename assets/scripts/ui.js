@@ -64,6 +64,7 @@ const signOutSuccess = function () {
   $('#showAll').hide()
   $('#update').hide()
   $('#delete').hide()
+  $('#content').hide()
   $('#sign-up').show()
   $('#sign-in').show()
 }
@@ -74,6 +75,7 @@ const signOutFailure = function () {
 }
 
 const createSuccessful = function (data) {
+  console.log(data)
   $('#message').text('Let\'s do this!!!!!')
   $('#message').css('background-color', 'blue')
   $('#newMovieField').val('')
@@ -95,7 +97,7 @@ const showAllMoviesSuccess = function (data) {
   const showMoviesHtml = showMovies({movies: data.movies})
   $('#message').text('Here ya Go!!!')
   $('#message').css('background-color', 'blue')
-  $('.content').append(showMoviesHtml)
+  $('.content').html(showMoviesHtml)
 }
 
 const showAllMoviesFailed = function (data) {
@@ -106,6 +108,7 @@ const showAllMoviesFailed = function (data) {
 const updateSuccess = function (data) {
   $('#message').text('Hold up one sec')
   $('#message').css('background-color', 'red')
+  $('#movie-id-update').val('')
   $('#updateMovie').val('')
   $('#updateDirector').val('')
   $('#updateActor').val('')
@@ -114,9 +117,16 @@ const updateSuccess = function (data) {
 const updateFailed = function (data) {
   $('#message').text('Hold up one sec')
   $('#message').css('background-color', 'red')
-  $('#updateMovie').val('')
-  $('#updateDirector').val('')
-  $('#updateActor').val('')
+}
+
+const deleteSuccessful = function () {
+  $('#message').text('Delete Successfully')
+  $('#message').css('background-color', 'green')
+}
+
+const deleteFailed = function () {
+  $('#message').text('Hold up one sec')
+  $('#message').css('background-color', 'red')
 }
 
 module.exports = {
@@ -133,5 +143,7 @@ module.exports = {
   showAllMoviesSuccess,
   showAllMoviesFailed,
   updateSuccess,
-  updateFailed
+  updateFailed,
+  deleteSuccessful,
+  deleteFailed
 }
