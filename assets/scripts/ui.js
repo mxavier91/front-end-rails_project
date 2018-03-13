@@ -101,11 +101,8 @@ const showAllMoviesSuccess = function (data) {
 }
 
 const showAllMoviesFailed = function (data) {
-  console.log(data)
-  if (data.length === 0) {
-    $('#message').text('Hold up one sec')
-    $('#message').css('background-color', 'red')
-  }
+  $('#message').text('Hold up one sec')
+  $('#message').css('background-color', 'red')
 }
 
 const updateSuccess = function (data) {
@@ -120,6 +117,10 @@ const updateSuccess = function (data) {
 const updateFailed = function (data) {
   $('#message').text('Hold up one sec')
   $('#message').css('background-color', 'red')
+  $('#movie-id-update').val('')
+  $('#updateMovie').val('')
+  $('#updateDirector').val('')
+  $('#updateActor').val('')
 }
 
 const deleteSuccessful = function () {

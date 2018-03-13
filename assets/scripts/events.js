@@ -47,7 +47,7 @@ const onShowAll = function (event) {
   api.showAllMovies()
     .then(ui.showAllMoviesSuccess)
     .catch(ui.showAllMoviesFailed)
-  // $('#content').toggle()
+  $('#content').toggle()
 }
 
 const onUpdateMovie = function (event) {
@@ -63,7 +63,7 @@ const onUpdateMovie = function (event) {
   if (movie.id.length !== 0) {
     api.updateMovie(data)
       .then(ui.updateSuccess)
-      .catch(ui.onError)
+      .catch(ui.updateFailed)
   } else {
     console.log('Please provide a movie id!')
   }
@@ -98,7 +98,7 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#create').on('submit', onCreate)
-  $('#showAll').on('submit', onShowAll)
+  $('#showAll').on('click', onShowAll)
   $('#update').on('submit', onUpdateMovie)
   // $('#delete').on('submit', onDeleteMovie)
   $('#content').on('click', '.movie-delete', onDeleteMovie)
