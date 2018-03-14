@@ -30,8 +30,8 @@ const onSignOut = function () {
   event.preventDefault()
   const data = getFormFields(this)
   api.signOut(data)
-    .then(ui.deleteSuccess)
-    .catch(ui.deleteFailure)
+    .then(ui.signOutSuccess)
+    .catch(ui.signOutFailure)
 }
 
 const onCreate = function (event) {
@@ -47,27 +47,17 @@ const onShowAll = function (event) {
   api.showAllMovies()
     .then(ui.showAllMoviesSuccess)
     .catch(ui.showAllMoviesFailed)
+  $('#content').toggle()
 }
 
 const onUpdateMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  const movie = data.movie
-  if (movie.title === '') {
-    // alert('title required')
-    $('#content').html('<p>Title is required</p>')
-    $('#content').css('background-color', 'red')
-    return false
-  }
-  if (movie.id.length !== 0) {
-    api.updateMovie(data)
-      .then(ui.onUpdateSuccess)
-      .catch(ui.onError)
-  } else {
-    console.log('Please provide a movie id!')
-  }
+  api.updateMovie(data)
+    .then(ui.updateSuccess)
+    .catch(ui.updateFailed)
 }
-
+/*
 const onDeleteMovie = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -80,6 +70,16 @@ const onDeleteMovie = function (event) {
     console.log('Please provide a movie id!')
   }
 }
+*/
+
+const onDeleteMovie = (event) => {
+  event.preventDefault()
+  const id = event.target.dataset.id
+  api.deleteMovie(id)
+    .then(() => onShowAll(event))
+    // .then(ui.deleteSuccessful)
+    .catch(ui.deleteFailed)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -87,9 +87,10 @@ const addHandlers = () => {
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('submit', onSignOut)
   $('#create').on('submit', onCreate)
-  $('#showAll').on('submit', onShowAll)
+  $('#showAll').on('click', onShowAll)
   $('#update').on('submit', onUpdateMovie)
-  $('#delete').on('submit', onDeleteMovie)
+  // $('#delete').on('submit', onDeleteMovie)
+  $('#content').on('click', '.movie-delete', onDeleteMovie)
 }
 
 module.exports = {
