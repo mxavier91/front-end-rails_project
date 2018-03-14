@@ -2,7 +2,7 @@ const store = require('./store')
 const showMovies = require('./templates/movie-listing.handlebars')
 
 const signUpSuccess = function (data) {
-  $('#message').text('Signed up Successfully')
+  $('#message').text('"You Had Me at Hello"-Sign up Success')
   $('#message').css('background-color', 'green')
   $('#email-field').val('')
   $('#password-field').val('')
@@ -11,7 +11,7 @@ const signUpSuccess = function (data) {
 }
 
 const signUpFailure = function () {
-  $('#message').text('Signed up Failure')
+  $('#message').text('"Houston, We Have a Problem"-Sign up Error')
   $('#message').css('background-color', 'red')
   $('#email-field').val('')
   $('#password-field').val('')
@@ -19,8 +19,8 @@ const signUpFailure = function () {
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in Successfully')
-  $('#message').css('background-color', 'blue')
+  $('#message').text('"Welcome to THUNDERDOME!!!!!"-Sign In Success')
+  $('#message').css('background-color', 'green')
   $('#signInEmail').val('')
   $('#signInPassword').val('')
   $('#change-password').show()
@@ -35,28 +35,28 @@ const signInSuccess = function (data) {
 }
 
 const signInFailure = function (data) {
-  $('#message').text('Signed in Error')
+  $('#message').text('"DANGER Will Robinson DANGER"-Signed in Error')
   $('#message').css('background-color', 'yellow')
   $('#signInEmail').val('')
   $('#signInPassword').val('')
 }
 
 const changeSuccess = function () {
-  $('#message').text('Changed Password Successfully')
+  $('#message').text('"May The Force Be With You"-Changed Password Successfully')
   $('#message').css('background-color', 'green')
   $('#oldPasswordField').val('')
   $('#newPasswordField').val('')
 }
 
 const changeFailure = function () {
-  $('#message').text('Error changing password')
+  $('#message').text('"I Drink Your MilkShake!!!"-Error changing password')
   $('#message').css('background-color', 'red')
   $('#oldPasswordField').val('')
   $('#newPasswordField').val('')
 }
 
 const signOutSuccess = function () {
-  $('#message').text('Signed out Successfully')
+  $('#message').text('"I\'ll be Back"-Signed out Successfully')
   $('#message').css('background-color', 'green')
   $('#change-password').hide()
   $('#sign-out').hide()
@@ -70,14 +70,14 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function () {
-  $('#message').text('Error Signing Out')
+  $('#message').text('"Get Your Stinking Paws Off Me, You damned dirty ape!!!"-Signout Error')
   $('#message').css('background-color', 'red')
 }
 
 const createSuccessful = function (data) {
   console.log(data)
-  $('#message').text('Let\'s do this!!!!!')
-  $('#message').css('background-color', 'blue')
+  $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
+  $('#message').css('background-color', 'green')
   $('#newMovieField').val('')
   $('#newDirectorField').val('')
   $('#newActorField').val('')
@@ -85,7 +85,7 @@ const createSuccessful = function (data) {
 }
 
 const createFailed = function (data) {
-  $('#message').text('Hold up one sec')
+  $('#message').text('"Argo F@%# Yourself"-Error Adding Movie')
   $('#message').css('background-color', 'red')
   $('#newMovieField').val('')
   $('#newDirectorField').val('')
@@ -95,8 +95,8 @@ const createFailed = function (data) {
 const showAllMoviesSuccess = function (data) {
   console.log(data)
   const showMoviesHtml = showMovies({movies: data.movies})
-  $('#message').text('Here ya Go!!!')
-  $('#message').css('background-color', 'blue')
+  $('#message').text('"SHOW ME THE MONEY!!!"-Here are all you movies')
+  $('#message').css('background-color', 'green')
   $('.content').html(showMoviesHtml)
 }
 
@@ -106,8 +106,8 @@ const showAllMoviesFailed = function (data) {
 }
 
 const updateSuccess = function (data) {
-  $('#message').text('Hold up one sec')
-  $('#message').css('background-color', 'red')
+  $('#message').text('"I wish I knew how to quit you"-Successfully Update')
+  $('#message').css('background-color', 'green')
   $('#movie-id-update').val('')
   $('#updateMovie').val('')
   $('#updateDirector').val('')
@@ -115,7 +115,7 @@ const updateSuccess = function (data) {
 }
 
 const updateFailed = function (data) {
-  $('#message').text('Hold up one sec')
+  $('#message').text('Hold up one sec, Update Failure')
   $('#message').css('background-color', 'red')
   $('#movie-id-update').val('')
   $('#updateMovie').val('')
@@ -124,12 +124,12 @@ const updateFailed = function (data) {
 }
 
 const deleteSuccessful = function () {
-  $('#message').text('Delete Successfully')
+  $('#message').text('"Leave the gun. Take the Cannoli"-Delete Successfully')
   $('#message').css('background-color', 'green')
 }
 
 const deleteFailed = function () {
-  $('#message').text('Hold up one sec')
+  $('#message').text('Hold up one sec, Failed to Delete')
   $('#message').css('background-color', 'red')
 }
 
