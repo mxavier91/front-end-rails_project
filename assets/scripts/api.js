@@ -46,7 +46,6 @@ const signOut = function (data) {
 }
 
 const createMovie = function (data) {
-  console.log(data)
   return $.ajax({
     url: config.apiOrigin + '/movies',
     method: 'POST',

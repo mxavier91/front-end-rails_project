@@ -7,3 +7,6 @@ Once I was done with the back end coding, I went straight to the front end. I wa
 Day 2 Working on Front End
 
 I saw that a few of my classmates were using bootstrap to display their web app, but I decided to just use standard HTML. Once I created to buttons, I created files to hold my ui, my api, and my events. Alot of my code was very similar to my last project which as Tic Tac Toe. Throughout the front end I used Javascript and Jquery to give my page functionality. In order to have my back end connect with my front end I used the URL from my deployed herokuapp and used that for my Authorization and CRUD CURL scripts.
+
+
+Wireframe-https://imgur.com/4eBp8MY

@@ -93,7 +93,6 @@ const createFailed = function (data) {
 }
 
 const showAllMoviesSuccess = function (data) {
-  console.log(data)
   const showMoviesHtml = showMovies({movies: data.movies})
   $('#message').text('"SHOW ME THE MONEY!!!"-Here are all you movies')
   $('#message').css('background-color', 'green')
