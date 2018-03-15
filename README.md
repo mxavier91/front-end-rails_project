@@ -8,21 +8,24 @@
 
 <h2>Scope:</h2>
 
-1. Design and implement API
-2. Design and implement client side
-3. Deploy Apps
-4. <a herf="https://railsmovieapp.herokuapp.com/">API</a>
-5. <a herf="https://github.com/mxavier91/rails_project">API Repo</a>
+<ol>
+<li>Design and implement API</li>
+<li>Design and implement client side</li>
+<li>Deploy Apps</li>
+<li>API:https://railsmovieapp.herokuapp.com/</li>
+<li>API Repo https://github.com/mxavier91/rails_project</li>
+</ol>
 
 <h2>Technologies Used</h2>
-
-1. HTML
-2. CSS
-3. JavaScript
-4. Handlebars.js
-5. jQuery
-6. Ajax
-7. JSON
+<ol>
+<li>HTML</li>
+<li>CSS</li>
+<li>JavaScript</li>
+<li>Handlebars.js</li>
+<li>jQuery</li>
+<li>Ajax</li>
+<li>JSON</li>
+</ol>
 
 
 <h2>Wireframes</h2>
