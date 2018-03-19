@@ -46,7 +46,7 @@ const onShowAll = function (event) {
   event.preventDefault()
   api.showAllMovies()
     .then(ui.showAllMoviesSuccess)
-    .catch(ui.showAllMoviesFailed)
+    // .catch(ui.showAllMoviesFailed)
   $('#content').toggle()
 }
 
@@ -76,8 +76,8 @@ const onDeleteMovie = (event) => {
   event.preventDefault()
   const id = event.target.dataset.id
   api.deleteMovie(id)
+    .then(ui.deleteSuccessful)
     .then(() => onShowAll(event))
-    // .then(ui.deleteSuccessful)
     .catch(ui.deleteFailed)
 }
 

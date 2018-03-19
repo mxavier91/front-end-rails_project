@@ -95,15 +95,14 @@ const createFailed = function (data) {
 const showAllMoviesSuccess = function (data) {
   console.log(data)
   const showMoviesHtml = showMovies({movies: data.movies})
-  $('#message').text('"SHOW ME THE MONEY!!!"-Here are all you movies')
-  $('#message').css('background-color', 'green')
   $('.content').html(showMoviesHtml)
 }
-
+/*
 const showAllMoviesFailed = function (data) {
   $('#message').text('Hold up one sec')
   $('#message').css('background-color', 'red')
 }
+*/
 
 const updateSuccess = function (data) {
   $('#message').text('"I wish I knew how to quit you"-Successfully Update')
@@ -126,6 +125,7 @@ const updateFailed = function (data) {
 const deleteSuccessful = function () {
   $('#message').text('"Leave the gun. Take the Cannoli"-Delete Successfully')
   $('#message').css('background-color', 'green')
+  console.log('deleteSuccessful')
 }
 
 const deleteFailed = function () {
@@ -145,7 +145,6 @@ module.exports = {
   createSuccessful,
   createFailed,
   showAllMoviesSuccess,
-  showAllMoviesFailed,
   updateSuccess,
   updateFailed,
   deleteSuccessful,
