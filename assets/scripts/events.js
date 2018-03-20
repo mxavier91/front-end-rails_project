@@ -81,6 +81,14 @@ const onDeleteMovie = (event) => {
     .catch(ui.deleteFailed)
 }
 
+const onShowAllUsers = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.getAllUsers(data)
+    .then(ui.allUsersSuccess)
+    .catch(ui.allUserFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -91,6 +99,7 @@ const addHandlers = () => {
   $('#update').on('submit', onUpdateMovie)
   // $('#delete').on('submit', onDeleteMovie)
   $('#content').on('click', '.movie-delete', onDeleteMovie)
+  $('#all-users').on('submit', onShowAllUsers)
 }
 
 module.exports = {

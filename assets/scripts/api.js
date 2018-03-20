@@ -104,6 +104,19 @@ const deleteMovie = function (id) {
   })
 }
 
+const getAllUsers = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/movies',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
