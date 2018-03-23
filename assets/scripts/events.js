@@ -87,6 +87,7 @@ const onShowAllUsers = function (event) {
   api.getAllUsers(data)
     .then(ui.allUsersSuccess)
     .catch(ui.allUserFailure)
+  console.log(data)
 }
 
 const addHandlers = () => {

@@ -1,3 +1,13 @@
+{{#each users as |user|}}
+
+
+
+<h1 data-id="{{user.id}}">
+  <small>
+    User: {{user.email}}
+  </small>
+</h1>
+
 {{#each movies as |movie|}}
 
 <ul>
@@ -21,3 +31,6 @@
   {{/each}}
 
 </ul>
+
+
+{{/each}}

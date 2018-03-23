@@ -1,5 +1,6 @@
 const store = require('./store')
 const showMovies = require('./templates/movie-listing.handlebars')
+const showUsersMovies = require('./templates/users-movie-listings.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('"You Had Me at Hello"-Sign up Success')
@@ -97,6 +98,15 @@ const showAllMoviesSuccess = function (data) {
   const showMoviesHtml = showMovies({movies: data.movies})
   $('.content').html(showMoviesHtml)
 }
+
+const allUsersSuccess = function (data) {
+  console.log(data)
+  const showUsersMoviesHtml = showUsersMovies({users: data.users})
+  $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
+  $('#message').css('background-color', 'green')
+  $('#moreContent').append(showUsersMoviesHtml)
+}
+
 /*
 const showAllMoviesFailed = function (data) {
   $('#message').text('Hold up one sec')
@@ -145,6 +155,7 @@ module.exports = {
   createSuccessful,
   createFailed,
   showAllMoviesSuccess,
+  allUsersSuccess,
   updateSuccess,
   updateFailed,
   deleteSuccessful,
