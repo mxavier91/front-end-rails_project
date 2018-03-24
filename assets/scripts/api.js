@@ -110,8 +110,8 @@ const getAllUsers = function (data) {
     url: config.apiOrigin + '/users',
     method: 'GET',
     headers: {
-      contentType: 'application/json',
-      Authorization: 'Token token=' + store.user.token
+      contentType: 'application/json'
+      // Authorization: 'Token token=' + store.user.token
     }
   })
 }

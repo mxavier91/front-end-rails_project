@@ -1,12 +1,10 @@
 {{#each users as |user|}}
 
 
-
 <h1 data-id="{{user.id}}">
-  <small>
-    User: {{user.email}}
-  </small>
+  <button type="submit" class="link">User: {{user.email}}</button>
 </h1>
+
 
 {{#each movies as |movie|}}
 
@@ -23,9 +21,7 @@
     {{else}}
       Nothing provided
     {{/if}}<br>
-    <button class="movie-delete" data-id={{movie.id}}>
-      Remove
-    </button>
+
 </ul>
 
   {{/each}}
