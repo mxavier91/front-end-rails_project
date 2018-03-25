@@ -90,6 +90,15 @@ const onShowAllUsers = function (event) {
   console.log(data)
 }
 
+const onAddMovie = (event) => {
+  event.preventDefault()
+  const id = event.target.dataset.id
+  api.addMovie(id)
+    .then(ui.joinSuccessful)
+    // .then(() => onCreate(event))
+    .catch(ui.joinFailed)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -101,6 +110,7 @@ const addHandlers = () => {
   // $('#delete').on('submit', onDeleteMovie)
   $('#content').on('click', '.movie-delete', onDeleteMovie)
   $('#all-users').on('submit', onShowAllUsers)
+  $('#moreContent').children('li').on('click', '.add-movie', onAddMovie)
 }
 
 module.exports = {

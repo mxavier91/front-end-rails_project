@@ -104,6 +104,7 @@ const allUsersSuccess = function (data) {
   const showUsersMoviesHtml = showUsersMovies({users: data.users})
   $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
   $('#message').css('background-color', 'green')
+  $('#content').hide()
   $('#moreContent').append(showUsersMoviesHtml)
 }
 
@@ -143,6 +144,20 @@ const deleteFailed = function () {
   $('#message').css('background-color', 'red')
 }
 
+const joinSuccessful = function (data) {
+  console.log(data)
+  $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
+  $('#message').css('background-color', 'green')
+  $('.add-movie').on('click', )
+  store.movie = data.movie
+}
+
+const joinFailed = function (error) {
+  console.log(error)
+  $('#message').text('"Argo F@%# Yourself"-Error Adding Movie')
+  $('#message').css('background-color', 'red')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -159,5 +174,7 @@ module.exports = {
   updateSuccess,
   updateFailed,
   deleteSuccessful,
-  deleteFailed
+  deleteFailed,
+  joinSuccessful,
+  joinFailed
 }
