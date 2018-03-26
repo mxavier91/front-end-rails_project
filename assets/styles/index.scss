@@ -3,6 +3,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 body {
   // background-image: url('../../public/movies.jpg');
+  background-color:#5d6f8c;
   background-size: contain;
   margin-top: 100px;
 }
@@ -172,8 +173,9 @@ span {
 .link {
   background: none;
   border: none;
+  color: black;
 }
 
-button:hover {
+.link:hover {
   background-color: black;
 }

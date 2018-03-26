@@ -110,8 +110,8 @@ const getAllUsers = function (data) {
     url: config.apiOrigin + '/users',
     method: 'GET',
     headers: {
-      contentType: 'application/json'
-      // Authorization: 'Token token=' + store.user.token
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
     }
   })
 }
@@ -129,6 +129,18 @@ const addMovie = function (data) {
   })
 }
 
+const getAllMovies = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/users',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json'
+      // Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -139,5 +151,6 @@ module.exports = {
   updateMovie,
   deleteMovie,
   getAllUsers,
-  addMovie
+  addMovie,
+  getAllMovies
 }

@@ -104,8 +104,7 @@ const allUsersSuccess = function (data) {
   const showUsersMoviesHtml = showUsersMovies({users: data.users})
   $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
   $('#message').css('background-color', 'green')
-  $('#content').hide()
-  $('#moreContent').append(showUsersMoviesHtml)
+  $('#moreContent').html(showUsersMoviesHtml)
 }
 
 /*
@@ -148,7 +147,6 @@ const joinSuccessful = function (data) {
   console.log(data)
   $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
   $('#message').css('background-color', 'green')
-  $('.add-movie').on('click', )
   store.movie = data.movie
 }
 

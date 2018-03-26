@@ -87,17 +87,37 @@ const onShowAllUsers = function (event) {
   api.getAllUsers(data)
     .then(ui.allUsersSuccess)
     .catch(ui.allUserFailure)
-  console.log(data)
+  $('#moreContent').toggle()
 }
 
-const onAddMovie = (event) => {
+const onAddMovie = function (event) {
+  console.log(event.target)
   event.preventDefault()
-  const id = event.target.dataset.id
-  api.addMovie(id)
+  const data = {movie: {title: event.target.dataset.title, director: event.target.dataset.director, actor: event.target.dataset.actor}}
+  console.log(event.target.dataset)
+  api.addMovie(data)
     .then(ui.joinSuccessful)
     // .then(() => onCreate(event))
     .catch(ui.joinFailed)
 }
+
+const onShowAllUsersMovies = function (event) {
+  event.preventDefault()
+  const data = event.target.dataset.id
+  api.getAllMovies(data)
+    .then(ui.allMoviesSuccess)
+    .catch(ui.allMoviesFailure)
+  console.log(data)
+  $('#moreContent').toggle()
+}
+
+// const onCreate = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.createMovie(data)
+//     .then(ui.createSuccessful)
+//     .catch(ui.createFailed)
+// }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -109,8 +129,10 @@ const addHandlers = () => {
   $('#update').on('submit', onUpdateMovie)
   // $('#delete').on('submit', onDeleteMovie)
   $('#content').on('click', '.movie-delete', onDeleteMovie)
-  $('#all-users').on('submit', onShowAllUsers)
-  $('#moreContent').children('li').on('click', '.add-movie', onAddMovie)
+  $('#all-users').on('click', onShowAllUsers)
+  $('#moreContent').on('click', '.add-movie', onAddMovie)
+  $('#movieContent').on('click', '.link', onShowAllUsersMovies)
+  // $('#moreContent').data('key', 'movie')
 }
 
 module.exports = {

@@ -1,36 +1,26 @@
 {{#each users as |user|}}
 
-
+{{#each movies as |movie|}}
 
 <h1 data-id="{{user.id}}">
   <small>
-    <button type="button" class="link">User: {{user.email}}
+    <button type="button" class="link">User: {{user.email}}</button>
   </small>
 </h1>
 
-{{#each movies as |movie|}}
-
-<ul data-id="{{movie.id}}">
-  <h1>
-     <small class="main-title">
-       Title:{{movie.title}}
-     </small>
-   </h1>
-    {{#if movie.title}}
-      <li class="id">Movie ID:{{movie.id}}</li>
-      <li class="director">Director:{{movie.director}}</li>
-      <li class="actor">Actor:{{movie.actor}}</li>
-    {{else}}
-      Nothing provided
-    {{/if}}<br>
-    <button class="add-movie" data-id={{movie.id}}>
-      Add to List
-    </button>
+<ul>
+{{#if user.movies}}
+  <li class="main-title">Movie Title: {{movie.title}}</li>
+  <li class="id">Movie ID: {{movie.id}}</li>
+  <li class="director">Director: {{movie.director}}</li>
+  <li class="actor">Actor: {{movie.actor}}</li>
+{{else}}
+  Nothing provided
+{{/if}}<br>
 </ul>
+<button class="add-movie" data-actor="{{movie.actor}}" data-director="{{movie.director}}" data-title="{{movie.title}}" data-id={{movie.id}}>
+  Add to List
+</button>
 
-  {{/each}}
-
-</ul>
-
-
+{{/each}}
 {{/each}}
