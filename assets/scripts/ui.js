@@ -30,6 +30,7 @@ const signInSuccess = function (data) {
   $('#showAll').show()
   $('#update').show()
   $('#delete').show()
+  $('#all-users').show()
   $('#sign-up').hide()
   $('#sign-in').hide()
   store.user = data.user
