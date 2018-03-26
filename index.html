@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Example</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+
+      <p id="message" class="message"></p>
+
+<h1 class="title">CALLING ALL <span>CINEPHILES!!</span></h1>
+
+  <form id="all-users" class="border all-users">
+        <input class="" type="submit" value="All Users">
+  </form>
+
+
+
+
+    <div id="moreContent" class="moreContent">
+    </div>
+
+      <form id="sign-up" class="border sign-up">
+              <fieldset>
+                <legend class="new-member">Sign up!</legend>
+                <input type="submit" value="Sign up!" id="signUpButton">
+                <input  type="text" name="credentials[email]" required id="email-field" placeholder="Email">
+                <input  type="password" name="credentials[password]" required id="password-field"  placeholder="Password">
+                <input  type="password" name="credentials[password_confirmation]" required id="password-conformation-field"  placeholder="Confirm Password">
+              </fieldset>
+            </form>
+
+            <form id="sign-in" class="border sign-in">
+              <fieldset>
+                <legend class="returning-member">Sign In Here!</legend>
+                <input id="signInField" type="submit" value="Sign in!">
+                <input type="text" name="credentials[email]" required id="signInEmail" placeholder="Email">
+                <input type="password" name="credentials[password]" required id="signInPassword" placeholder="Password">
+              </fieldset>
+            </form>
+
+            <form id="sign-out" class="border sign-out">
+              <fieldset>
+                <legend class="leaving">Sign Out</legend>
+                <input type="submit" value="Sign Out">
+              </fieldset>
+            </form>
+
+            <form id="change-password" class="border change-pw">
+              <fieldset>
+                <legend class="changing">Change Password</legend>
+                <input id="passwordField" type="submit" value="Change Password">
+                <input type="password" name="passwords[old]" id="oldPasswordField" placeholder="Old Password">
+                <input type="password" name="passwords[new]" id="newPasswordField" placeholder="New Password">
+              </fieldset>
+            </form>
+
+            <form id="create" class="border new-item">
+              <fieldset>
+                <legend class="creation">Add a Movie</legend>
+                <p id="addSomething"></p>
+                <input id="createField" type="submit" value="Add Movie"><br>
+                <input type="text" name="movie[title]" id="newMovieField" placeholder="Movie Title"><br>
+                <input type="text" name="movie[director]" id="newDirectorField" placeholder="Director"><br>
+                <input type="text" name="movie[actor]" id="newActorField" placeholder="Actor"><br>
+              </fieldset>
+            </form>
+
+            <form id="showAll" class="border all-movies">
+              <fieldset>
+                <legend class="listings">My Movies</legend>
+                <input type="submit" value="Show My Movies">
+              </fieldset>
+            </form>
+
+            <div id="content" class="content">
+            </div>
+
+            <form id="update" class="border update-movies">
+              <fieldset>
+                <legend class="update">Update an Existing Movie</legend>
+                <p id="missing"></p>
+                <input id="updateField" type="submit" value="Update Movie"><br>
+                <input type="text" name="movie[id]"  id="movie-id-update" placeholder="Movie ID Here"><br>
+                <input type="text" name="movie[title]" id="updateMovie" placeholder="Movie Title"><br>
+                <input type="text" name="movie[director]" id="updateDirector" placeholder="Director"><br>
+                <input type="text" name="movie[actor]" id="updateActor" placeholder="Actor"><br>
+              </fieldset>
+            </form>
+    </body>
+</html>
