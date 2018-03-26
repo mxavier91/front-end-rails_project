@@ -2,7 +2,8 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
 body {
-  background-image: url('../../public/movies.jpg');
+  // background-image: url('../../public/movies.jpg');
+  background-color:#5d6f8c;
   background-size: contain;
   margin-top: 100px;
 }
@@ -162,7 +163,22 @@ span {
   color: black;
   font-weight: bold;
 }
-
 .listings {
   color: white;
+}
+
+.all-users {
+  padding-bottom: 30px;
+  position: relative;
+  left: 95%;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: black;
+}
+
+.link:hover {
+  background-color: black;
 }

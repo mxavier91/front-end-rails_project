@@ -46,7 +46,7 @@ const onShowAll = function (event) {
   event.preventDefault()
   api.showAllMovies()
     .then(ui.showAllMoviesSuccess)
-    .catch(ui.showAllMoviesFailed)
+    // .catch(ui.showAllMoviesFailed)
   $('#content').toggle()
 }
 
@@ -76,10 +76,48 @@ const onDeleteMovie = (event) => {
   event.preventDefault()
   const id = event.target.dataset.id
   api.deleteMovie(id)
+    .then(ui.deleteSuccessful)
     .then(() => onShowAll(event))
-    // .then(ui.deleteSuccessful)
     .catch(ui.deleteFailed)
 }
+
+const onShowAllUsers = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  api.getAllUsers(data)
+    .then(ui.allUsersSuccess)
+    .catch(ui.allUserFailure)
+  $('#moreContent').toggle()
+}
+
+const onAddMovie = function (event) {
+  console.log(event.target)
+  event.preventDefault()
+  const data = {movie: {title: event.target.dataset.title, director: event.target.dataset.director, actor: event.target.dataset.actor}}
+  console.log(event.target.dataset)
+  api.addMovie(data)
+    .then(ui.joinSuccessful)
+    // .then(() => onCreate(event))
+    .catch(ui.joinFailed)
+}
+
+const onShowAllUsersMovies = function (event) {
+  event.preventDefault()
+  const data = event.target.dataset.id
+  api.getAllMovies(data)
+    .then(ui.allMoviesSuccess)
+    .catch(ui.allMoviesFailure)
+  console.log(data)
+  $('#moreContent').toggle()
+}
+
+// const onCreate = function (event) {
+//   event.preventDefault()
+//   const data = getFormFields(event.target)
+//   api.createMovie(data)
+//     .then(ui.createSuccessful)
+//     .catch(ui.createFailed)
+// }
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -91,6 +129,10 @@ const addHandlers = () => {
   $('#update').on('submit', onUpdateMovie)
   // $('#delete').on('submit', onDeleteMovie)
   $('#content').on('click', '.movie-delete', onDeleteMovie)
+  $('#all-users').on('click', onShowAllUsers)
+  $('#moreContent').on('click', '.add-movie', onAddMovie)
+  $('#movieContent').on('click', '.link', onShowAllUsersMovies)
+  // $('#moreContent').data('key', 'movie')
 }
 
 module.exports = {

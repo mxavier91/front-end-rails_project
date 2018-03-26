@@ -1,5 +1,6 @@
 const store = require('./store')
 const showMovies = require('./templates/movie-listing.handlebars')
+const showUsersMovies = require('./templates/users-movie-listings.handlebars')
 
 const signUpSuccess = function (data) {
   $('#message').text('"You Had Me at Hello"-Sign up Success')
@@ -94,15 +95,23 @@ const createFailed = function (data) {
 
 const showAllMoviesSuccess = function (data) {
   const showMoviesHtml = showMovies({movies: data.movies})
-  $('#message').text('"SHOW ME THE MONEY!!!"-Here are all you movies')
-  $('#message').css('background-color', 'green')
   $('.content').html(showMoviesHtml)
 }
 
+const allUsersSuccess = function (data) {
+  console.log(data)
+  const showUsersMoviesHtml = showUsersMovies({users: data.users})
+  $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
+  $('#message').css('background-color', 'green')
+  $('#moreContent').html(showUsersMoviesHtml)
+}
+
+/*
 const showAllMoviesFailed = function (data) {
   $('#message').text('Hold up one sec')
   $('#message').css('background-color', 'red')
 }
+*/
 
 const updateSuccess = function (data) {
   $('#message').text('"I wish I knew how to quit you"-Successfully Update')
@@ -125,10 +134,24 @@ const updateFailed = function (data) {
 const deleteSuccessful = function () {
   $('#message').text('"Leave the gun. Take the Cannoli"-Delete Successfully')
   $('#message').css('background-color', 'green')
+  console.log('deleteSuccessful')
 }
 
 const deleteFailed = function () {
   $('#message').text('Hold up one sec, Failed to Delete')
+  $('#message').css('background-color', 'red')
+}
+
+const joinSuccessful = function (data) {
+  console.log(data)
+  $('#message').text('"It\'s Alive, It\'s Alive!!!"-New Movie Added')
+  $('#message').css('background-color', 'green')
+  store.movie = data.movie
+}
+
+const joinFailed = function (error) {
+  console.log(error)
+  $('#message').text('"Argo F@%# Yourself"-Error Adding Movie')
   $('#message').css('background-color', 'red')
 }
 
@@ -144,9 +167,11 @@ module.exports = {
   createSuccessful,
   createFailed,
   showAllMoviesSuccess,
-  showAllMoviesFailed,
+  allUsersSuccess,
   updateSuccess,
   updateFailed,
   deleteSuccessful,
-  deleteFailed
+  deleteFailed,
+  joinSuccessful,
+  joinFailed
 }

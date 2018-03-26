@@ -103,6 +103,43 @@ const deleteMovie = function (id) {
   })
 }
 
+const getAllUsers = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/users',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const addMovie = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/movies',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+const getAllMovies = function (data) {
+  console.log(data)
+  return $.ajax({
+    url: config.apiOrigin + '/users',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json'
+      // Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
@@ -111,5 +148,8 @@ module.exports = {
   createMovie,
   showAllMovies,
   updateMovie,
-  deleteMovie
+  deleteMovie,
+  getAllUsers,
+  addMovie,
+  getAllMovies
 }
